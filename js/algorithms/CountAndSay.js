@@ -18,21 +18,21 @@ Note: The sequence of integers will be represented as a string.
  * @return {string}
  */
 var countAndSay = function(n) {
-  var start = '1';
-  var result = '';
-  var tmp = 1;
+  var result = '1';
+  var tmp_result = '';
+  var counter = 1;
   for (i=0; i<n-1; i++){
-    for (var j=0; j<start.length; j++){
-      //lets do in one loop, tmp will count how many repeats we have
-      if(start[j] !== start[j+1] || j == start.length - 1){
-        result += tmp + start[j];
-        tmp = 1;
+    for (var j=0; j<result.length; j++){
+      //lets do in one loop, counter will count how many repeats we have
+      if(result[j] !== result[j+1] || j == result.length - 1){
+        tmp_result += counter + result[j];
+        counter = 1;
       } else {
-        tmp +=1;
+        counter +=1;
       }
     }
-    start = result;
-    result = '';
+    result = tmp_result;
+    tmp_result = '';
   }
-  return start;
+  return result;
 };
