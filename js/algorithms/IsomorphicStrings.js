@@ -46,5 +46,3 @@ var isIsomorphic = function(s, t) {
         return buildDict(s, t) && buildDict(t, s);
     }
 };
-
-};
