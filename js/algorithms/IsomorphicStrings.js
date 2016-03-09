@@ -22,34 +22,35 @@ You may assume both s and t have the same length.
  * @return {boolean}
  */
 
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
 var isIsomorphic = function(s, t) {
-  function getpairs(){
-    var a = [];
-    for (var i=0; i<s.length; i++){
-      a[i] = s[i] + t[i];
-    }
-    return a;
-  }
-  if(s.length == t.length){
+    var sLen = s.length;
+    var tLen = t.length;
+    var el;
+    var buildDict = function(str1, str2){
+        var dict = {};
+        for (var i=0; i<sLen; i++){
+            el = str1[i];
+            if(dict[el] === undefined){
+                dict[el] = str2[i];
+            } else {
+                if(dict[el] !== str2[i]){
+                    return false;
+                }
+            }
+        }
+        return true;
+    };
     
-    var pairs = getpairs();
-    //console.log(pairs());
-    for (var i=0; i<s.length; i++){
-      var index = s.indexOf(pairs[i][0]);
-      if(t[index] !== pairs[i][1]){
+    if(sLen !== tLen){
         return false;
-      }
-      
-      var index2 = t.indexOf(pairs[i][1]);
-      if(s[index2] !== pairs[i][0]){
-        return false;
-      }
+    } else {
+        return buildDict(s, t) && buildDict(t, s);
     }
-    
-    
-    return true;
-  } else {
-    return false;
-  }
+};
 
 };
