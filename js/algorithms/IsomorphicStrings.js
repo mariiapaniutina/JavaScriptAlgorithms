@@ -21,12 +21,6 @@ You may assume both s and t have the same length.
  * @param {string} t
  * @return {boolean}
  */
-
-/**
- * @param {string} s
- * @param {string} t
- * @return {boolean}
- */
 var isIsomorphic = function(s, t) {
     var sLen = s.length;
     var tLen = t.length;
