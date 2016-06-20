@@ -20,7 +20,10 @@ Solution example
  * @return {number}
  */
 var uniquePaths = function(m, n) {
-    var createBasicArr = function(m, n){
+    if (m === 0 || n === 0){
+        return 0;
+    }
+    
     var arr = [];
     for (var i=0; i<m; i++){
       arr[i] = [];
@@ -32,10 +35,6 @@ var uniquePaths = function(m, n) {
         }
       }
     }
-    return arr;
-  }
   
-  var arr = createBasicArr(m, n);
-  
-  return arr[m-1][n-1];
+    return arr[m-1][n-1];
 };
