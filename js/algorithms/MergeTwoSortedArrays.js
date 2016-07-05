@@ -10,11 +10,9 @@ Implementation of merging two sorted arrays with extra memory
 var mergeTwoSortedArrays = function(arr1, arr2){
   var arr1Len = arr1.length || 0;
   var arr2Len = arr2.length || 0;
-  var totalArrLen = arr1Len + arr2Len;
   var totalArr = [];
   var curr1 = 0;
   var curr2 = 0;
-  var currTotal = 0;
   var tail;
 
   while(curr1 < arr1Len && curr2 < arr2Len){    
@@ -25,8 +23,6 @@ var mergeTwoSortedArrays = function(arr1, arr2){
       totalArr.push(arr2[curr2]);
       curr2++;
     }
-    
-    currTotal++;
   }
   
   //add tails
