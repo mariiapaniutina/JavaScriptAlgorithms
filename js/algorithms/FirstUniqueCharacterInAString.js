@@ -22,34 +22,35 @@ var firstUniqChar = function(s) {
   
   var getUniqCharMap = function(s){
     var sMap = {};
-    var sArr = [];
 
     for (var i=0; i<s.length; i++){
       if (!sMap[s[i]]){
 
         sMap[s[i]] = 1;
-        sArr[i] = s[i];
 
       } else {
         sMap[s[i]]++;
       }
     }
     
-    return {
-      charMap: sMap,
-      charPos: sArr
-    };
+    return sMap;
   };
   
-  var getFirstUniqueChar = function(map, arr){
-    for (var i=0; i<arr.length; i++){
-      if (map[arr[i]] && map[arr[i]] === 1){
+  var getFirstUniqueChar = function(map, s){
+    for (var i=0; i<s.length; i++){
+      if (map[s[i]] && map[s[i]] === 1){
         return i;
       }
     }
     
     return -1;
   };
+  
+  var uninqueCharMap = getUniqCharMap(s);
+  var firstUniqueChar = getFirstUniqueChar(uninqueCharMap, s);
+  
+  return firstUniqueChar;
+};
   
   var uninqueCharMap = getUniqCharMap(s);
   var firstUniqueChar = getFirstUniqueChar(uninqueCharMap.charMap, uninqueCharMap.charPos);
