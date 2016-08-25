@@ -22,17 +22,13 @@ var firstUniqChar = function(s) {
   
   var getUniqCharMap = function(s){
     var sMap = {};
-
     for (var i=0; i<s.length; i++){
       if (!sMap[s[i]]){
-
         sMap[s[i]] = 1;
-
       } else {
         sMap[s[i]]++;
       }
     }
-    
     return sMap;
   };
   
@@ -42,7 +38,6 @@ var firstUniqChar = function(s) {
         return i;
       }
     }
-    
     return -1;
   };
   
