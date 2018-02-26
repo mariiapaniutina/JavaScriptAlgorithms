@@ -32,35 +32,20 @@ matrix[i][j] will be integers in range [0, 99].
  * @return {boolean}
  */
 var isToeplitzMatrix = function(matrix) {
-    var map = {};
-    var result = true;
     var iL = matrix.length;
     var jL = matrix[0].length;
     
-    for (var i=0; i<iL; i++){
-        for (var j=0; j<jL; j++){
-            var key = '' + i + '' + j;
-            var val = matrix[i][j];
-            // check for top and left nums and put it to map
-            if (i === 0 || j === 0) {
-                map[key] = val;
-            // now check prev number from diagonale (it should be in the map)
-            // and if this exists, put current to map,
-            //if not - break the loop    
-            } else {
-                var prevI = i-1;
-                var prevJ = j-1;
-                var prevKey = '' + prevI + '' + prevJ;
-                if (map[prevKey] === val){
-                    map[key] = val;
-                } else {
-                    result = false;
-                    break;
-                }
+    for (var i=1; i<iL; i++){
+        for (var j=1; j<jL; j++){
+            var prevVal = matrix[i-1][j-1];
+            var val = matrix[i][j]; 
+
+            if (val !== prevVal) {
+                return false;
             }
         }
     }
     
-    return result;
+    return true;
     
 };
